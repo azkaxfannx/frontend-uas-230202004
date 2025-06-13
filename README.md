@@ -1,3 +1,7 @@
+# Demo: `http://uas-azka.duckdns.org/`
+## Login:
+### `admin@example.com` | `123456`
+
 # Laravel Frontend Setup Guide
 
 Panduan lengkap untuk setup Laravel sebagai frontend yang mengkonsumsi API dari backend.
