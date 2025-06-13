@@ -1,6 +1,8 @@
-# Demo: `http://uas-azka.duckdns.org/`
-## Login:
-### `admin@example.com` | `123456`
+# Demo
+[http://uas-azka.duckdns.org/](http://uas-azka.duckdns.org/)
+
+## Login
+`admin@example.com` | `123456`
 
 # Laravel Frontend Setup Guide
 
