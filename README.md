@@ -87,7 +87,7 @@ class Mahasiswa extends Controller
 // ...
 ```
 
-### 8. Buat juga folder `Services` dan buat file MahasiswaServices & ProdiServices (agar kode lebih clean dan mudah dimaintain). Contoh isi file:
+### 9. Buat juga folder `Services` dan buat file MahasiswaServices & ProdiServices (agar kode lebih clean dan mudah dimaintain). Contoh isi file:
 ```php
 <?php 
 
@@ -114,7 +114,7 @@ class MahasiswaServices
 
 ## 📁 Struktur Views
 
-### 9. Buat Folder dan File Views
+### 10. Buat Folder dan File Views
 ```
 resources/
 ├── views/
@@ -133,7 +133,7 @@ resources/
 
 ## 🚀 Menjalankan Aplikasi
 
-### 10. Start Development Server
+### 11. Start Development Server
 ```bash
 php artisan serve
 ```
@@ -161,7 +161,7 @@ composer require barryvdh/laravel-dompdf
 
 ## 🎯 Implementasi Dasar
 
-### 4. Tambahkan Method di Controller Mahasiswa
+### 2. Tambahkan Method di Controller Mahasiswa
 ```php
 use Barryvdh\DomPDF\Facade\Pdf;
 
@@ -172,7 +172,7 @@ public function export() {
     }
 ```
 
-### 5. Buat Template PDF
+### 3. Buat Template PDF
 Buat file `resources/views/mahasiswa/pdf.blade.php`:
 
 ```html
@@ -216,7 +216,7 @@ Buat file `resources/views/mahasiswa/pdf.blade.php`:
 </html>
 ```
 
-### 7. Tambahkan Button di View
+### 4. Tambahkan Button di View
 Di `resources/views/mahasiswa/index.blade.php`:
 
 ```html
