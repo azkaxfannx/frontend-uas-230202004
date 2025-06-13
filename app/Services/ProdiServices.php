@@ -30,11 +30,6 @@ class ProdiServices
         return $response->successful() ? $response->json() : null;
     }
 
-    // public function edit($id) {
-    //     $response = Http::get("{$this->baseUrl}/prodi/{$id}");
-    //     return $response->successful() ? $response->json() : null;
-    // }
-
     public function update($data, $id) {
         $response = Http::put("{$this->baseUrl}/prodi/$id", $data->all());
         return $response->successful() ? $response->json() : null;

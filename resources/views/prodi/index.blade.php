@@ -3,7 +3,10 @@
 @section('content')
     <h3>Data Prodi</h3>
     <a href="/prodi/create" class="btn btn-primary mb-3">Tambah Prodi</a>
-    <table class="table table-bordered">
+
+    <input type="text" id="search" class="form-control mb-3" placeholder="Cari berdasarkan Kode/Nama ....">
+
+    <table class="table table-bordered" id="prodiTable">
         <thead>
             <tr>
                 <th>Kode Prodi</th>
@@ -28,4 +31,17 @@
             @endforeach
         </tbody>
     </table>
+
+    @section('scripts')
+        <script>
+            $('#search').on('keyup', function () {
+                let value = $(this).val().toLowerCase().trim();
+                $('#prodiTable tbody tr').filter(function () {
+                    let kode_prodi = $(this).find('td').eq(0).text().toLowerCase().trim();
+                    let nama_prodi = $(this).find('td').eq(1).text().toLowerCase().trim();
+                    $(this).toggle(kode_prodi.startsWith(value) || nama_prodi.startsWith(value));
+                });
+            });
+        </script>
+    @endsection
 @endsection

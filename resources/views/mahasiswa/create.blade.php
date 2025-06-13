@@ -10,7 +10,7 @@
     </div>
     <div class="mb-3">
         <label>Nama</label>
-        <input type="text" name="nama" class="form-control" required>
+        <input type="text" name="nama_mahasiswa" class="form-control" required>
     </div>
     <div class="mb-3">
         <label>ID Kelas</label>

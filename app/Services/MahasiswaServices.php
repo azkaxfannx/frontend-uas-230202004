@@ -30,11 +30,6 @@ class MahasiswaServices
         return $response->successful() ? $response->json() : null;
     }
 
-    // public function edit($id) {
-    //     $response = Http::get("{$this->baseUrl}/mahasiswa/{$id}");
-    //     return $response->successful() ? $response->json() : null;
-    // }
-
     public function update($data, $id) {
         $response = Http::put("{$this->baseUrl}/mahasiswa/$id", $data->all());
         return $response->successful() ? $response->json() : null;

@@ -2,6 +2,7 @@
 @section('title', 'Edit Prodi')
 @section('content')
 <h3>Edit Prodi</h3>
+
 <form method="POST" action="/prodi/{{ $prodi['kode_prodi'] }}">
     @csrf
     @method('PUT')
@@ -11,7 +12,7 @@
     </div>
     <div class="mb-3">
         <label>Nama Prodi</label>
-        <input type="text" name="nama" value="{{ $prodi['nama_prodi'] }}" class="form-control" required>
+        <input type="text" name="nama_prodi" value="{{ $prodi['nama_prodi'] }}" class="form-control" required>
     </div>
     <a href="/prodi" class="btn btn-warning">Kembali</a>
     <button class="btn btn-primary">Update</button>

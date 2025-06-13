@@ -11,7 +11,7 @@
     </div>
     <div class="mb-3">
         <label>Nama</label>
-        <input type="text" name="nama" value="{{ $data1['nama_mahasiswa'] }}" class="form-control" required>
+        <input type="text" name="nama_mahasiswa" value="{{ $data1['nama_mahasiswa'] }}" class="form-control" required>
     </div>
     <div class="mb-3">
         <label>ID Kelas</label>
@@ -22,7 +22,7 @@
         <select name="kode_prodi" class="form-control">
             <option value="">- Tidak ada -</option>
             @foreach ($data2 as $p)
-                <option value="{{ $p['nidn'] }}" @if ($data1['kode_prodi'] == $p['kode_prodi']) selected @endif>{{ $p['nama_prodi'] }}</option>
+                <option value="{{ $p['kode_prodi'] }}" @if ($data1['kode_prodi'] == $p['kode_prodi']) selected @endif>{{ $p['nama_prodi'] }}</option>
             @endforeach
         </select>
     </div>

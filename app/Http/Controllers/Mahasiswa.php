@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Services\MahasiswaServices;
 use App\Services\ProdiServices;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class Mahasiswa extends Controller
 {
@@ -29,8 +30,10 @@ class Mahasiswa extends Controller
     }
 
     public function store(Request $request) {
-        $this->mahasiswa->store($request);
-        return redirect('/mahasiswa');
+        if ($this->mahasiswa->store($request)) {
+            return redirect('/mahasiswa')->with('success', 'Mahasiswa berhasil ditambahkan.');
+        }
+        return redirect('/mahasiswa')->with('error', 'Gagal menambahkan mahasiswa.');
     }
 
     public function edit($npm) {
@@ -40,12 +43,22 @@ class Mahasiswa extends Controller
     }
 
     public function update(Request $request, $npm) {
-        $this->mahasiswa->update($request, $npm);
-        return redirect('/mahasiswa');
+        if ($this->mahasiswa->update($request, $npm)) {
+        return redirect('/mahasiswa')->with('success', 'Mahasiswa berhasil diperbarui.');
+        }
+        return redirect('/mahasiswa')->with('error', 'Gagal memperbarui mahasiswa.');
     }
     
     public function destroy($npm) {
-        $this->mahasiswa->destroy($npm);
-        return redirect('/mahasiswa');
+        if ($this->mahasiswa->destroy($npm)) {
+        return redirect('/mahasiswa')->with('success', 'Mahasiswa berhasil dihapus.');
+        }
+        return redirect('/mahasiswa')->with('error', 'Gagal menghapus mahasiswa.');
+    }
+
+    public function export() {
+        $data = $this->mahasiswa->getAll();
+        $pdf = Pdf::loadView('mahasiswa.pdf', compact('data'));
+        return $pdf->download('data-mahasiswa.pdf');
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard;
+use App\Http\Controllers\Login;
 use App\Http\Controllers\Mahasiswa;
 use App\Http\Controllers\Prodi;
 use Illuminate\Support\Facades\Route;
@@ -16,9 +17,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [Dashboard::class, 'index']);
-// Route::get('/login', [LoginController::class, 'showLoginForm']);
-// Route::post('/login', [LoginController::class, 'login']);
+Route::get('/login', [Login::class, 'showLoginForm'])->name('login');
+Route::post('/login', [Login::class, 'login']);
+Route::post('/logout', [Login::class, 'logout'])->name('logout');
 
-Route::resource('prodi', Prodi::class);
-Route::resource('mahasiswa', Mahasiswa::class);
+Route::middleware(['auth.session'])->group(function () {
+    Route::get('/', [Dashboard::class, 'index']);
+    Route::resource('prodi', Prodi::class);
+    Route::get('/mahasiswa/export', [Mahasiswa::class, 'export']);
+    Route::resource('mahasiswa', Mahasiswa::class)->except(['show']);
+});
